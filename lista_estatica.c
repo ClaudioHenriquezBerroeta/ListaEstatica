@@ -74,7 +74,7 @@ int recuperar(int p, struct lista *L){
 		printf("La posicion no es valida!\n");
 		return -1;
 	}else{
-		printf("El elmento de la posicion %i es : %i \n",p,arreglo[p]);
+		printf("El elmento de la posicion %i es : %i \n",p,L->arreglo[p]);
 		return L->arreglo[p];
 	}
 }
