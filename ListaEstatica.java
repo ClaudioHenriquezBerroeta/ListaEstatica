@@ -45,16 +45,40 @@ public class ListaEstatica{
 			}
 		}
 	}
+	int localizar(int x){
+		int i;
+		for(i=0;i<ultimo;i++){
+			if(x==arreglo[i]){
+				System.out.println("La posicion del elemento "+x+" es: "+i);
+				return i;
+			}
+		}
+		System.out.println("El valor no se encuentra!");
+		return -1;
+	}
+
+	int recuperar(int p){
+		if((p<0)||(p>=ultimo)){
+			System.out.println("La posicion no es valida!");
+			return -1;
+		}else{
+			System.out.println("El elmento de la posicion "+p+" es :"+arreglo[p]);
+			return arreglo[p];
+		}
+	}
+
 
 	public static void main(String[] args) {
 		ListaEstatica L = new ListaEstatica(10);
-		L.eliminar(0);
+		//L.eliminar(0);
 		L.insertar(10,0);
-		L.insertar(10,1);
+		L.insertar(20,1);
 		L.insertar(30,2);
-		L.insertar(10,3);
+		L.insertar(40,3);
 		L.mostrar();
 		L.eliminar(2);
 		L.mostrar();
+		L.localizar(30);
+		L.recuperar(-1);
 	}
 }
