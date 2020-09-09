@@ -78,23 +78,37 @@ int recuperar(int p, struct lista *L){
 		return L->arreglo[p];
 	}
 }
+int fin(struct lista *L){
+	return L->ultimo;
+}
+//***************************************************
+void promedio(){
+   lista* nuevo=(lista*)malloc(sizeof(lista));
+   actual=primero;
+   float calculo=0;
+   int cont=0;
+       while(actual!=NULL){
+           calculo=calculo + actual->nota;
+           cont++;
+       }
+       prom=calculo/cont;
+       return prom;
+   }
+
+//***************************************************
 int main(int argc, char const *argv[])
 {
 	/* code */
+	float media;
 	struct lista *L; //declaramos la lista
 	L = constructor(); //creamos la lista, asignar memoria (instanciar)
-	//L=eliminar(0,L);
 	L=insertar(10,0,L);
 	L=insertar(20,1,L);
 	L=insertar(30,2,L);
 	L=insertar(40,3,L);
 	mostrar(L);
-	L=eliminar(2,L);
-	mostrar(L);
-	localizar(30,L);
-	recuperar(-1,L);
-	//printf("%i\n",Lista1->arreglo[10]);
-	//printf("%i\n",Lista1->arreglo[20]);	
+	media=promedio(L);	
+	printf("El promedio de la lista es %f \n",media);
 	destructor(L); // liberamos memoria
 
 	return 0;
